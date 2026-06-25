@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Insurance Policy Acknowledgement Form — Chancery Wright</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:        #FDBB05;
+      --white:       #FFFFFF;
+      --bg:          #E8ECF4;
+      --label:       #4A5568;
+      --border:      #C8D0DF;
+      --input-bg:    #F7F9FC;
+      --text:        #1A2336;
+      --muted:       #8A95A6;
+      --success:     #1B5E20;
+      --chancery:    #03265E;
+      --logo:        #003A70;
+      --black:       #000000;
+
+    
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      padding: 40px 20px 60px;
+      color: var(--text);
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .logo-block {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--white);
+      padding: 16px 28px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(27,47,94,0.12);
+      border-top: 4px solid var(--gold);
+    }
+
+    /* Grid-squares logo mark matching the real CW logo */
+    /* .logo-mark {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+    } */
+
+    /* .logo-text {
+      text-align: left;
+    } */
+
+    /* .logo-text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+    }
+
+    .logo-text h1 span {
+      color: var(--gold);
+    }
+
+    .logo-text p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9.5px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+ */
+    /* ── FORM CARD ── */
+    .form-card {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 4px 28px rgba(27,47,94,0.12), 0 1px 4px rgba(27,47,94,0.06);
+      border-top: 5px solid var(--chancery);
+      overflow: hidden;
+    }
+
+    /* Gold accent stripe under the navy top border */
+    .form-card::before {
+      content: '';
+      display: block;
+      height: 3px;
+      background: var(--gold);
+      position: absolute;
+      top: 5px;
+      left: 0; right: 0;
+    }
+
+    /* ── WATERMARK ── */
+    .watermark {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .watermark svg {
+      width: 400px;
+      height: 400px;
+      opacity: 0.04;
+      transform: rotate(-12deg);
+    }
+
+    /* ── FORM HEADER BANNER ── */
+    .form-banner {
+      background: var(--chancery);
+      padding: 22px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-banner h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .form-banner .gold-bar {
+      height: 3px;
+      width: 48px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-top: 6px;
+    }
+
+    .form-banner-badge {
+      background: var(--gold);
+      color: var(--chancery);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .form-banner { padding: 18px 22px; }
+      .form-banner-badge { display: none; }
+    }
+
+    /* ── FORM INNER ── */
+    .form-inner {
+      position: relative;
+      z-index: 1;
+      padding: 36px 48px 48px;
+    }
+
+    @media (max-width: 600px) {
+      .form-inner { padding: 24px 20px 36px; }
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .section-num {
+      width: 26px;
+      height: 26px;
+      background: var(--chancery);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--chancery);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1.5px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      border-radius: 2px;
+    }
+
+    /* ── INTRO BOX ── */
+    .form-intro {
+      font-size: 13.5px;
+      color: var(--black);
+      line-height: 1.75;
+      margin-bottom: 30px;
+      padding: 14px 18px;
+      background: var(--gold);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* ── FIELD GROUPS ── */
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .field-row.single { grid-template-columns: 1fr; }
+
+    @media (max-width: 540px) {
+      .field-row { grid-template-columns: 1fr; }
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    label .required { color: var(--gold); margin-left: 3px; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--input-bg);
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+      width: 100%;
+    }
+
+    input:focus {
+      border-color: var(--chancery);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(27,47,94,0.10);
+    }
+
+    input::placeholder { color: var(--muted); font-weight: 300; }
+
+    /* ── AUTO DATE DISPLAY ── */
+    .date-display {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--chancery);
+      background: var(--boarder);
+      border: 1.5px solid var(--gold);
+      border-radius: 6px;
+      padding: 11px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+      letter-spacing: 0.03em;
+    }
+
+    .date-display::before {
+      content: '📅';
+      font-size: 13px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1.5px solid var(--border);
+      margin: 28px 0;
+    }
+
+    /* ── CHECKLIST ── */
+    .confirm-label {
+      font-size: 13.5px;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .checklist > li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      background: var(--input-bg);
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .checklist > li:has(input:checked) {
+      border-color: var(--gold);
+      background: var(--gold);
+    }
+
+    .checklist input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      accent-color: var(--chancery);
+      margin-top: 2px;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .checklist .check-text {
+      font-size: 13.5px;
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    .checklist .sub-items {
+      list-style: none;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .checklist .sub-items li {
+      font-size: 12.5px;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .checklist .sub-items li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 1px;
+      background: var(--chancery);
+      flex-shrink: 0;
+    }
+
+    /* ── SIGNATURE ── */
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    @media (max-width: 540px) {
+      .sig-grid { grid-template-columns: 1fr; }
+    }
+
+    .sig-block { display: flex; flex-direction: column; gap: 10px; }
+
+    .sig-role {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .sig-pad {
+      width: 100%;
+      height: 90px;
+      border: 1.5px dashed var(--border);
+      border-radius: 6px;
+      background: var(--input-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 12px;
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sig-pad:hover {
+      border-color: var(--chancery);
+      background: #f0f3fa;
+    }
+
+    .sig-pad canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      cursor: crosshair;
+    }
+
+    .sig-clear {
+      font-size: 11px;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      transition: color 0.15s;
+    }
+
+    .sig-clear:hover { color: var(--chancery); }
+
+    /* ── BUTTONS ── */
+    .form-footer {
+      margin-top: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding-top: 24px;
+      border-top: 1.5px solid var(--border);
+    }
+
+    .btn-reset {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--label);
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      padding: 11px 22px;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .btn-reset:hover { color: var(--text); border-color: #9aa3b0; }
+
+    .btn-submit {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--chancery);
+      background: var(--gold);
+      border: none;
+      border-radius: 6px;
+      padding: 12px 30px;
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 3px 10px rgba(232,160,32,0.35);
+      transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(232,160,32,0.42);
+    }
+
+    .btn-submit:active { transform: translateY(0); }
+
+    /* ── TOAST ── */
+    .toast {
+      display: none;
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--chancery);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 14px 22px;
+      border-radius: 8px;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      z-index: 999;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── PAGE FOOTER ── */
+    .page-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .page-footer span { color: var(--gold); }
+
+    select {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text);
+            background: var(--input-bg);
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            padding: 11px 14px;
+            outline: none;
+            width: 100%;
+            cursor: pointer;
+          }
+
+    select:focus {
+      border-color: var(--chancery);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(27,47,94,0.10);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="logo-block">
+      <img src="images/chancery-wright-logo.jpg"
+         alt="Chancery Wright Insurance Brokers"
+         class="logo">
+    </img>
+      <!-- <div class="logo-text"> <h1>Chancery <span>Wright</span></h1> <p>Insurance Brokers</p> </div> -->
+    </div>
+  </header>
+
+  <!-- FORM CARD -->
+  <div class="form-card">
+    <form action="https://formsubmit.co/senthiflevo@gmail.com" method="POST">
+      
+      <input type="hidden" name="_next" value="https://hyacinthflavius.github.io/insurance-policy-acknowledgement/">
+      <input type="hidden" name="_subject" value="New Insurance Policy Acknowledgement">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+    <!-- WATERMARK -->
+    <div class="watermark" aria-hidden="true">
+      <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0"  y="0"  width="15" height="15" rx="2" fill="#1B2F5E"/>
+        <rect x="18" y="0"  width="15" height="15" rx="2" fill="#1B2F5E"/>
+        <rect x="36" y="0"  width="15" height="15" rx="2" fill="#1B2F5E"/>
+        <rect x="0"  y="18" width="15" height="15" rx="2" fill="#1B2F5E"/>
+        <rect x="18" y="18" width="15" height="15" rx="2" fill="#1B2F5E"/>
+        <rect x="36" y="18" width="15" height="15" rx="2" fill="#1B2F5E"/>
+        <rect x="0"  y="36" width="15" height="15" rx="2" fill="#1B2F5E"/>
+        <rect x="18" y="36" width="15" height="15" rx="2" fill="#1B2F5E"/>
+        <rect x="36" y="36" width="15" height="15" rx="2" fill="#1B2F5E"/>
+      </svg>
+    </div>
+
+    <!-- BANNER -->
+    <div class="form-banner">
+      <div>
+        <h2>Insurance Policy Acknowledgement</h2>
+        <div class="gold-bar"></div>
+      </div>
+      <div class="form-banner-badge">Official Document</div>
+    </div>
+
+    <div class="form-inner">
+
+      <p class="form-intro">
+        This form acknowledges that the undersigned has received and reviewed a detailed explanation
+        of the insurance policy as presented by a Relationship Manager of Chancery Wright Insurance
+        Brokers Ltd. Please complete all fields and confirm each item below before signing.
+      </p>
+
+      <!-- SECTION 1: CLIENT DETAILS -->
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <div class="section-title">Client Details</div>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="client-name">Client Name <span class="required">*</span></label>
+          <input type="text" 
+                 id="client-name" 
+                 name="Client Name" 
+                 placeholder="Full legal name" 
+                 autocomplete="off" 
+                 required/>
+        </div>
+        <div class="field-group">
+          <label for="policy-number">Policy Number</label>
+          <input type="text" 
+                 id="policy-number" 
+                 name="Policy Number"
+                 placeholder="If applicable"/>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="client-email">Email Address</label>
+          <input type="email" 
+                 id="client-email" 
+                 name="Client Email"
+                 placeholder="client@example.com"/>
+        </div>
+        <div class="field-group">
+          <label for="client-phone">Phone Number</label>
+          <input type="tel" 
+                 id="client-phone"
+                 name="Client Phone" 
+                 placeholder="+254 700 000 000"/>
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field-group">
+          <label>Date</label>
+          <div class="date-display" id="date-field-display"></div>
+        </div>
+      </div>
+
+      <hr class="divider"/>
+
+      <!-- SECTION 2: CONFIRMATIONS -->
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <div class="section-title">Confirmations</div>
+        <div class="section-line"></div>
+      </div>
+
+      <p class="confirm-label">I confirm that the following has been provided to me:</p>
+
+      <ul class="checklist">
+        <li>
+          <input type="checkbox"
+                 id="chk1"
+                 name="Confirmations[]"
+                 value="Policy explanation provided"/>
+
+          <div class="check-text">
+            <strong>A clear and comprehensive description of the insurance policy, including:</strong>
+            <ul class="sub-items">
+              <li>Coverage benefits</li>
+              <li>Policy terms and conditions</li>
+              <li>Exclusions and limitations</li>
+              <li>Premium amounts and payment terms</li>
+              <li>Claims process</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <input type="checkbox"
+                 id="chk2"
+                 name="Confirmations[]"
+                 value="Questions answered satisfactorily"/>
+          <div class="check-text">
+            An opportunity to ask questions regarding the policy features, and satisfactory answers were provided.
+          </div>
+        </li>
+        <li>
+          <input type="checkbox"
+                 id="chk3"
+                 name="Confirmations[]"
+                 value="Policy brochure received"/>
+          <div class="check-text">
+            A copy of the policy brochure/document for my own records.
+          </div>
+        </li>
+      </ul>
+
+      <hr class="divider"/>
+
+<!-- SECTION 3: RELATIONSHIP MANAGER -->
+<div class="section-header">
+  <div class="section-num">3</div>
+  <div class="section-title">Client Review</div>
+  <div class="section-line"></div>
+</div>
+
+<p class="confirm-label" style="margin-bottom:20px;">
+  This policy explanation was provided by the Relationship Manager named below.
+</p>
+
+<div class="field-row">
+  <div class="field-group">
+    <label for="rm-name">Relationship Manager Name <span class="required">*</span></label>
+    <select id="rm-name" name="Relationhip Manager" required>
+      <option value="" selected disabled>Select Relationship Manager</option>
+      <option value="Dennis Omondi Owiro">Dennis Omondi Owiro</option>
+      <option value="Jane Gikonyo">Jane Gikonyo</option>
+      <option value="Slavy Muriungi">Slavy Muriungi</option>
+      <option value="Paul Bundi">Paul Bundi</option>
+      <option value="Castro Ochieng">Castro Ochieng</option>
+    </select>
+  </div>
+
+  <div class="field-group">
+    <label>Date</label>
+    <div class="date-display" id="rm-date-display"></div>
+  </div>
+
+  
+</div>
+<div class="form-footer">
+    <button type="submit" class="btn-submit">
+        Submit Report
+    </button>
+</div>
+</div>
+</form>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const today = new Date();
+
+    const formattedDate = today.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    });
+
+    document.getElementById('date-field-display').textContent = formattedDate;
+
+    const rmDate = document.getElementById('rm-date-display');
+    if (rmDate) {
+        rmDate.textContent = formattedDate;
+    }
+});
+</script>
+
+
+</body>
